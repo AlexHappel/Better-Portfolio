@@ -4,7 +4,7 @@ import DarkModeToggle from './DarkModeToggle';
 
 function Header() {
   return (
-    <header className="bg-gray-800 text-white p-4 flex justify-between items-center">
+    <header className="bg-gray-800 text-white p-4 flex justify-between items-center dark:bg-blue-700 dark:text-blue-200">
       <nav className="flex space-x-4">
         <Link to="/" className="hover:underline">Bio</Link>
         <Link to="/skills" className="hover:underline">Skills</Link>
