@@ -1,5 +1,69 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Add light and dark mode styles */
+html {
+  @apply bg-white text-gray-900;
+}
+
+html.dark {
+  @apply bg-gray-900 text-gray-100;
+}
+
+body {
+  @apply bg-white text-gray-900;
+}
+
+body.dark {
+  @apply bg-gray-900 text-gray-100;
+}
+
+header {
+  @apply bg-gray-100 text-gray-900;
+}
+
+html.dark header {
+  @apply bg-gray-800 text-gray-100;
+}
+
+.container {
+  @apply bg-white text-gray-900;
+}
+
+html.dark .container {
+  @apply bg-gray-900 text-gray-100;
+}
+
+button {
+  @apply bg-gray-200 text-gray-900;
+}
+
+html.dark button {
+  @apply bg-gray-700 text-gray-100;
+}
+
+a {
+  @apply text-blue-600;
+}
+
+html.dark a {
+  @apply text-blue-400;
+}
+
+p {
+  @apply text-gray-700;
+}
+
+html.dark p {
+  @apply text-gray-300;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply text-gray-900;
+}
+
+html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark h5, html.dark h6 {
+  @apply text-gray-100;
+}
 

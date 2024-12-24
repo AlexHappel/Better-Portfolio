@@ -10,6 +10,7 @@ function Contact() {
   });
 
   const [status, setStatus] = useState('');
+  const [showModal, setShowModal] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -25,6 +26,7 @@ function Contact() {
       const response = await axios.post('https://backend-url.com/api/contact', formData);
       if (response.status === 200) {
         setStatus('Message sent successfully!');
+        setShowModal(true);
         setFormData({ name: '', email: '', message: '', phone: '' });
       }
     } catch (error) {
@@ -33,27 +35,35 @@ function Contact() {
   };
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 bg-white text-black dark:bg-gray-800 dark:text-white">
       <h1 className="text-3xl font-bold mb-4">Contact Me</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <label className="block">
           Name:
-          <input type="text" name="name" value={formData.name} onChange={handleChange} required className="border p-2 rounded w-full" />
+          <input type="text" name="name" value={formData.name} onChange={handleChange} required className="border p-2 rounded w-full transition-colors focus:border-blue-500 dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600" />
         </label>
         <label className="block">
           Email:
-          <input type="email" name="email" value={formData.email} onChange={handleChange} required className="border p-2 rounded w-full" />
+          <input type="email" name="email" value={formData.email} onChange={handleChange} required className="border p-2 rounded w-full transition-colors focus:border-blue-500 dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600" />
         </label>
         <label className="block">
           Phone:
-          <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required className="border p-2 rounded w-full" />
+          <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required className="border p-2 rounded w-full transition-colors focus:border-blue-500 dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600" />
         </label>
         <label className="block">
           Message:
-          <textarea name="message" value={formData.message} onChange={handleChange} required className="border p-2 rounded w-full" />
+          <textarea name="message" value={formData.message} onChange={handleChange} required className="border p-2 rounded w-full transition-colors focus:border-blue-500 dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600" />
         </label>
-        <button type="submit" className="bg-blue-500 text-white p-2 rounded">Send</button>
+        <button type="submit" className="bg-blue-500 text-white p-2 rounded transition-transform transform hover:scale-105 dark:bg-blue-700">Send</button>
       </form>
+      {showModal && (
+        <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
+          <div className="bg-white p-4 rounded shadow dark:bg-gray-700 dark:text-gray-200">
+            <p>{status}</p>
+            <button onClick={() => setShowModal(false)} className="mt-4 bg-blue-500 text-white p-2 rounded dark:bg-blue-700">Close</button>
+          </div>
+        </div>
+      )}
       <p className="mt-4">{status}</p>
     </div>
   );

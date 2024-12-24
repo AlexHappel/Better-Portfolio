@@ -17,33 +17,33 @@ router.post('/', async (req, res) => {
         const newContact = new Contact({ name, email, message });
         await newContact.save();
 
-        
         const transporter = nodemailer.createTransport({
             service: 'Gmail',
             auth: {
                 user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS,
-            },
+                pass: process.env.EMAIL_PASS
+            }
         });
 
         const mailOptions = {
-            from: email,
-            to: process.env.EMAIL_USER,
-            subject: `New Contact Form Submission from ${name}`,
-            text: message,
+            from: process.env.EMAIL_USER,
+            to: email,
+            subject: 'Contact Form Submission',
+            text: `Thank you for your message, ${name}. We will get back to you soon.`
         };
 
         transporter.sendMail(mailOptions, (error, info) => {
             if (error) {
-                console.error(error);
-                return res.status(500).json({ msg: 'Error sending email' });
+                console.error('Error sending email:', error);
+                return res.status(500).json({ msg: 'Failed to send email' });
             } else {
-                console.log('Email sent: ' + info.response);
-                return res.status(200).json({ msg: 'Message sent successfully' });
+                console.log('Email sent:', info.response);
+                res.status(200).json({ msg: 'Contact saved and email sent' });
             }
         });
+
     } catch (err) {
-        console.error(err);
+        console.error('Error saving contact:', err);
         res.status(500).json({ msg: 'Server error' });
     }
 });

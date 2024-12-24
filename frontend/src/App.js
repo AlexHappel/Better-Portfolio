@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <Header />
-      <div className="container">
+      <div className="container mx-auto p-4">
         <Routes>
           <Route path="/" element={<Bio />} />
           <Route path="/skills" element={<Skills />} />

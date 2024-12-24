@@ -15,6 +15,9 @@ app.use(express.json());
 
 // Routes
 app.use('/api/contact', contactRoute);
+app.get('/resume', (req, res) => { 
+  res.download('./path/to/resume.pdf');
+});
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGODB_URI, {
