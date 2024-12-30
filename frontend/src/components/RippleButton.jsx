@@ -1,7 +1,7 @@
 import React from 'react';
 import './RippleButton.css';
 
-const RippleButton = ({ children }) => {
+const RippleButton = ({ children, onClick, className, ...props }) => {
     const createRipple = (event) => {
         const button = event.currentTarget;
         const circle = document.createElement('span');
@@ -20,12 +20,18 @@ const RippleButton = ({ children }) => {
         }
 
         button.appendChild(circle);
+
+        // Call the onClick handler passed from the parent component
+        if (onClick) {
+            onClick(event);
+        }
     };
 
     return (
         <button
-            className="relative overflow-hidden bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none"
+            className={`relative overflow-hidden ${className}`}
             onClick={createRipple}
+            {...props}
         >
             {children}
         </button>

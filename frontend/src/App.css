@@ -4,6 +4,8 @@
   align-items: center;
   padding: 20px;
   flex-grow: 1;
+  background-color: #e2e8f0; /* Slightly darker background color */
+  color: #2d3748; /* Slightly darker text color */
 }
 
 @media (max-width: 768px) {
@@ -19,8 +21,8 @@
 }
 
 footer {
-  background-color: #f3f4f6;
-  color: #1f2937;
+  background-color: #cbd5e0; /* Slightly darker background color */
+  color: #2d3748; /* Slightly darker text color */
   padding: 1rem;
   text-align: center;
 }

@@ -4,7 +4,7 @@
 
 /* Add light and dark mode styles */
 html {
-  @apply bg-white text-gray-900;
+  @apply bg-gray-200 text-gray-800; /* Slightly darker background and text colors */
 }
 
 html.dark {
@@ -12,7 +12,7 @@ html.dark {
 }
 
 body {
-  @apply bg-white text-gray-900;
+  @apply bg-gray-200 text-gray-800; /* Slightly darker background and text colors */
 }
 
 body.dark {
@@ -20,7 +20,7 @@ body.dark {
 }
 
 header {
-  @apply bg-gray-100 text-gray-900;
+  @apply bg-gray-300 text-gray-800; /* Slightly darker background and text colors */
 }
 
 html.dark header {
@@ -28,7 +28,7 @@ html.dark header {
 }
 
 .container {
-  @apply bg-white text-gray-900;
+  @apply bg-gray-200 text-gray-800; /* Slightly darker background and text colors */
 }
 
 html.dark .container {
@@ -36,7 +36,7 @@ html.dark .container {
 }
 
 button {
-  @apply bg-gray-200 text-gray-900;
+  @apply bg-gray-300 text-gray-800; /* Slightly darker background and text colors */
 }
 
 html.dark button {
@@ -44,7 +44,7 @@ html.dark button {
 }
 
 a {
-  @apply text-blue-600;
+  @apply text-blue-600; /* Softer link color */
 }
 
 html.dark a {
@@ -60,10 +60,27 @@ html.dark p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  @apply text-gray-900;
+  @apply text-gray-800; /* Slightly darker heading colors */
 }
 
 html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark h5, html.dark h6 {
   @apply text-gray-100;
+}
+
+/* Bubble button styles */
+.bubble-button {
+  @apply px-4 py-2 bg-gray-300 text-gray-800 rounded-full transition-colors duration-200;
+}
+
+.bubble-button:hover {
+  @apply bg-gray-400;
+}
+
+html.dark .bubble-button {
+  @apply bg-gray-700 text-gray-100;
+}
+
+html.dark .bubble-button:hover {
+  @apply bg-gray-600;
 }
 

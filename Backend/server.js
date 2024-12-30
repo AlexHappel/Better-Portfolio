@@ -13,8 +13,15 @@ const contactRoute = require('./routes/contact');
 
 const app = express();
 
+// Trust proxy
+app.set('trust proxy', 1); // Trust the first proxy
+
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:5173',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json());
 app.use(morgan('combined'));
 app.use(helmet());

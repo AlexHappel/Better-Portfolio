@@ -24,7 +24,7 @@ function Contact() {
     e.preventDefault();
     setStatus('Sending...');
     try {
-      const response = await axios.post('https://backend-url.com/api/contact', formData);
+      const response = await axios.post('http://localhost:5000/api/contact', formData);
       if (response.status === 200) {
         setStatus('Message sent successfully!');
         setShowModal(true);

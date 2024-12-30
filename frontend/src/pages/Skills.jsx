@@ -43,7 +43,7 @@ function Skills() {
     const tooltipWidth = 50; 
     const viewportWidth = window.innerWidth;
 
-    let tooltipX = rect.right + 10;
+    let tooltipX = rect.right;
     if (tooltipX + tooltipWidth > viewportWidth) {
       tooltipX = rect.left - tooltipWidth - -130;
     }
@@ -75,7 +75,7 @@ function Skills() {
         {skills.map((skill, index) => (
           <li
             key={index}
-            className="transition-transform transform hover:scale-105 relative inline-block w-auto"
+            className="transition-transform transform hover:scale-105 relative block w-auto" // Changed to block
             onMouseEnter={(e) => handleMouseEnter(e, skill)}
             onMouseLeave={handleMouseLeave}
           >

@@ -12,6 +12,7 @@ router.post(
     check('name', 'Name is required').not().isEmpty(),
     check('email', 'Please include a valid email').isEmail(),
     check('message', 'Message is required').not().isEmpty(),
+    check('phone', 'Phone number is required').not().isEmpty(),
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -20,32 +21,35 @@ router.post(
     }
 
     const sanitizedBody = sanitize(req.body);
-    const { name, email, message } = sanitizedBody;
+    const { name, email, message, phone } = sanitizedBody;
 
     try {
       // Save to MongoDB
-      const newContact = new Contact({ name, email, message });
+      const newContact = new Contact({ name, email, message, phone });
       await newContact.save();
 
+      // Create a transporter object using the default SMTP transport
       const transporter = nodemailer.createTransport({
-        service: 'Gmail',
+        service: 'Gmail', // Use Gmail as the email service
         auth: {
-          user: process.env.EMAIL_USER,
-          pass: process.env.EMAIL_PASS,
+          user: process.env.EMAIL_USER, // Your email address
+          pass: process.env.EMAIL_PASS, // Your app-specific password
         },
       });
 
+      // Setup email data
       const mailOptions = {
-        from: process.env.EMAIL_USER,
-        to: email,
-        subject: 'Contact Form Submission',
-        text: `Thank you for your message, ${name}. We will get back to you soon.`,
+        from: process.env.EMAIL_USER, // Sender address
+        to: process.env.RECEIVER_EMAIL, // Receiver's email address
+        subject: 'Contact Form Submission', // Subject line
+        text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`, // Plain text body
       };
 
+      // Send mail with defined transport object
       transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
           console.error('Error sending email:', error);
-          return res.status(500).json({ msg: 'Failed to send email' });
+          return res.status(500).json({ msg: 'Failed to send email', error: error.message });
         } else {
           console.log('Email sent:', info.response);
           res.status(200).json({ msg: 'Contact saved and email sent' });
@@ -53,7 +57,7 @@ router.post(
       });
     } catch (err) {
       console.error('Error saving contact:', err);
-      res.status(500).json({ msg: 'Server error' });
+      res.status(500).json({ msg: 'Server error', error: err.message });
     }
   }
 );

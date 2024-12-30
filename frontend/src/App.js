@@ -6,7 +6,7 @@ import Contact from './pages/Contact';
 import Projects from './pages/Projects.jsx';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
-
+import ClickPulse from './components/ClickPulse.jsx';
 
 function App() {
   return (
@@ -22,6 +22,7 @@ function App() {
           </Routes>
         </div>
         <Footer />
+        <ClickPulse />
       </div>
     </Router>
   );
