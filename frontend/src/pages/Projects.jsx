@@ -37,7 +37,11 @@ const Projects = () => {
           <li key={index} className="border p-4 rounded shadow transition-transform transform hover:scale-105 dark:border-gray-700 flex flex-col">
             <h2 className="text-2xl font-semibold">{project.title}</h2>
             <p className="text-gray-700 dark:text-gray-300">{project.description}</p>
-            <a href={project.link} className="text-blue-600 hover:underline transition-colors hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-600">View Project</a>
+            <div className="inline-block">
+              <a href={project.link} className="text-blue-600 hover:underline transition-colors hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-600">
+                View Project
+              </a>
+            </div>
           </li>
         ))}
       </ul>

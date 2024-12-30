@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import RippleButton from '../components/RippleButton';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -54,13 +55,17 @@ function Contact() {
           Message:
           <textarea name="message" value={formData.message} onChange={handleChange} required className="border p-2 rounded w-full transition-colors focus:border-blue-500 dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600" />
         </label>
-        <button type="submit" className="bg-blue-500 text-white p-2 rounded transition-transform transform hover:scale-105 dark:bg-blue-700">Send</button>
+        <RippleButton type="submit" className="bg-blue-500 text-white p-2 rounded transition-transform transform hover:scale-105 dark:bg-blue-700">
+          Send
+        </RippleButton>
       </form>
       {showModal && (
         <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center p-4">
           <div className="bg-white p-4 rounded shadow dark:bg-gray-700 dark:text-gray-200 max-w-md w-full">
             <p>{status}</p>
-            <button onClick={() => setShowModal(false)} className="mt-4 bg-blue-500 text-white p-2 rounded dark:bg-blue-700">Close</button>
+            <RippleButton onClick={() => setShowModal(false)} className="mt-4 bg-blue-500 text-white p-2 rounded dark:bg-blue-700">
+              Close
+            </RippleButton>
           </div>
         </div>
       )}
