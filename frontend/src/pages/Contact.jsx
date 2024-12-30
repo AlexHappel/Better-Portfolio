@@ -35,9 +35,9 @@ function Contact() {
   };
 
   return (
-    <div className="container mx-auto p-4 bg-white text-black dark:bg-gray-800 dark:text-white">
+    <div className="container mx-auto p-4 bg-white text-black dark:bg-gray-800 dark:text-white flex-grow flex flex-col items-center">
       <h1 className="text-3xl font-bold mb-4">Contact Me</h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4 w-full max-w-lg">
         <label className="block">
           Name:
           <input type="text" name="name" value={formData.name} onChange={handleChange} required className="border p-2 rounded w-full transition-colors focus:border-blue-500 dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600" />
@@ -57,8 +57,8 @@ function Contact() {
         <button type="submit" className="bg-blue-500 text-white p-2 rounded transition-transform transform hover:scale-105 dark:bg-blue-700">Send</button>
       </form>
       {showModal && (
-        <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white p-4 rounded shadow dark:bg-gray-700 dark:text-gray-200">
+        <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center p-4">
+          <div className="bg-white p-4 rounded shadow dark:bg-gray-700 dark:text-gray-200 max-w-md w-full">
             <p>{status}</p>
             <button onClick={() => setShowModal(false)} className="mt-4 bg-blue-500 text-white p-2 rounded dark:bg-blue-700">Close</button>
           </div>

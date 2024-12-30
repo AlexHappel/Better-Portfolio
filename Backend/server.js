@@ -45,7 +45,7 @@ if (process.env.NODE_ENV !== 'production') {
 // Routes
 app.use('/api/contact', contactRoute);
 app.get('/resume', (req, res) => { 
-  res.download('./path/to/resume.pdf'); // Ensure this path is correct
+  res.download('./path/to/resume.pdf');
 });
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'UP' });

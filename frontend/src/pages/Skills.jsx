@@ -39,43 +39,43 @@ function Skills() {
   const [tooltip, setTooltip] = useState({ visible: false, content: '', x: 0, y: 0 });
 
   const handleMouseEnter = (e, skill) => {
-  const rect = e.target.getBoundingClientRect();
-  const tooltipWidth = 50; 
-  const viewportWidth = window.innerWidth;
+    const rect = e.target.getBoundingClientRect();
+    const tooltipWidth = 50; 
+    const viewportWidth = window.innerWidth;
 
-  let tooltipX = rect.right + 10;
-  if (tooltipX + tooltipWidth > viewportWidth) {
-    tooltipX = rect.left - tooltipWidth - -130;
-  }
+    let tooltipX = rect.right + 10;
+    if (tooltipX + tooltipWidth > viewportWidth) {
+      tooltipX = rect.left - tooltipWidth - -130;
+    }
 
-  setTooltip({
-    visible: true,
-    content: (
-      <div>
-        <p><strong>Description:</strong> {skill.description}</p>
-        <p><strong>Level:</strong> {skill.level}</p>
-        <p><strong>Experience:</strong> {skill.experience}</p>
-        <p><strong>Projects:</strong> {skill.projects}</p>
-        <p><strong>Certifications:</strong> {skill.certifications}</p>
-      </div>
-    ),
-    x: tooltipX,
-    y: rect.top
-  });
-};
+    setTooltip({
+      visible: true,
+      content: (
+        <div>
+          <p><strong>Description:</strong> {skill.description}</p>
+          <p><strong>Level:</strong> {skill.level}</p>
+          <p><strong>Experience:</strong> {skill.experience}</p>
+          <p><strong>Projects:</strong> {skill.projects}</p>
+          <p><strong>Certifications:</strong> {skill.certifications}</p>
+        </div>
+      ),
+      x: tooltipX,
+      y: rect.top
+    });
+  };
 
   const handleMouseLeave = () => {
     setTooltip({ visible: false, content: '', x: 0, y: 0 });
   };
 
   return (
-    <div className="container mx-auto p-4 bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+    <div className="container mx-auto p-4 bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 flex-grow flex flex-col items-center">
       <h1 className="text-3xl font-bold mb-4">My Skills</h1>
       <ul className="list-disc pl-5 space-y-2">
         {skills.map((skill, index) => (
           <li
             key={index}
-            className="transition-transform transform hover:scale-105 relative"
+            className="transition-transform transform hover:scale-105 relative inline-block w-auto"
             onMouseEnter={(e) => handleMouseEnter(e, skill)}
             onMouseLeave={handleMouseLeave}
           >

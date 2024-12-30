@@ -5,18 +5,22 @@ import Skills from './pages/Skills.jsx';
 import Contact from './pages/Contact';
 import Projects from './pages/Projects.jsx';
 import Header from './components/Header.jsx';
+import Footer from './components/Footer.jsx';
 
 function App() {
   return (
     <Router>
-      <Header />
-      <div className="container mx-auto p-4">
-        <Routes>
-          <Route path="/" element={<Bio />} />
-          <Route path="/skills" element={<Skills />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/projects" element={<Projects />} />
-        </Routes>
+      <div className="flex flex-col min-h-screen">
+        <Header />
+        <div className="flex-grow container mx-auto p-4">
+          <Routes>
+            <Route path="/" element={<Bio />} />
+            <Route path="/skills" element={<Skills />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/projects" element={<Projects />} />
+          </Routes>
+        </div>
+        <Footer />
       </div>
     </Router>
   );
