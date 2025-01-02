@@ -2,29 +2,29 @@ import React from 'react';
 
 const projects = [
   {
-    title: 'Project One',
+    title: 'Agora',
     description: 'Description of project one.',
-    link: 'http://link-to-project-one.com'
+    link: 'https://github.com/AlexHappel/Agora'
   },
   {
-    title: 'Project Two',
+    title: 'Zozzled',
     description: 'Description of project two.',
-    link: 'http://link-to-project-two.com'
+    link: 'https://github.com/AlexHappel/Cocktail-Directory'
   },
   {
-    title: 'Project Three',
+    title: 'This Porfolio',
     description: 'Description of project three.',
-    link: 'http://link-to-project-three.com'
+    link: 'https://github.com/AlexHappel/Better-Portfolio'
   },
   {
-    title: 'Project Four',
+    title: 'Dionysus',
     description: 'Description of project four.',
-    link: 'http://link-to-project-four.com'
+    link: 'https://github.com/AlexHappel/Dionysus'
   },
   {
-    title: 'Project Five',
+    title: 'Whiskey',
     description: 'Description of project five.',
-    link: 'http://link-to-project-five.com'
+    link: 'https://github.com/AlexHappel/Whiskey'
   }
 ];
 

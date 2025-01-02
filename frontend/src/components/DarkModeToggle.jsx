@@ -9,8 +9,10 @@ function DarkModeToggle() {
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add('dark');
+      document.body.style.backgroundImage = "url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.Aw74nN0SY1XYJlRRdMD1bQHaEK%26pid%3DApi&f=1&ipt=0797f36c7daf4f41fe1f5b894e01c9daa7dde82a29508d476cc10eb1d70d7362&ipo=images')";
     } else {
       document.documentElement.classList.remove('dark');
+      document.body.style.backgroundImage = "url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F535675.jpg&f=1&nofb=1&ipt=e1db691e63761f6d7ac8c1a57198222033081221c2661d0fcd31d76465c0d147&ipo=images')";
     }
     localStorage.setItem('darkMode', darkMode);
   }, [darkMode]);
@@ -18,7 +20,7 @@ function DarkModeToggle() {
   return (
     <button
       onClick={() => setDarkMode(!darkMode)}
-      className="p-2 bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-100 rounded"
+      className="bubble-button p-2 bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-100 rounded-full w-12 h-12 flex items-center justify-center"
     >
       {darkMode ? (
         <svg
