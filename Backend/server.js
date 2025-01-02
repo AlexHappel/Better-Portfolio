@@ -59,12 +59,9 @@ app.get('/health', (req, res) => {
 });
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => logger.info('MongoDB connected'))
-.catch((err) => logger.error(err));
+mongoose.connect(process.env.MONGODB_URI)
+  .then(() => logger.info('MongoDB connected'))
+  .catch((err) => logger.error(err));
 
 // Start Server
 const PORT = process.env.PORT || 5000;
